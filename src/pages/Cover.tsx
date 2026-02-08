@@ -67,7 +67,7 @@ const Cover = () => {
         </h1>
 
         {/* Subheadline */}
-        <p className="text-xl md:text-2xl lg:text-3xl text-white text-center max-w-3xl mb-12 drop-shadow-lg font-medium leading-relaxed">
+        <p className="text-xl md:text-2xl lg:text-3xl text-white/95 text-center max-w-3xl mb-12 drop-shadow-lg font-medium leading-relaxed">
           Housing, jobs, food, culture — everything you need to feel at home,
           wherever you go. Built for students, professionals and dreamers...!
         </p>
