@@ -63,7 +63,7 @@ const Signup = () => {
           <Button type="submit" className="w-full" size="lg">Create account</Button>
         </form>
         <p className="text-center text-sm text-muted-foreground mt-6">
-          Already have an account? <Link to="/auth/login" className="text-primary hover:underline font-medium">Sign in</Link>
+          Already have an account? <Link to="/uk/auth/login" className="text-primary hover:underline font-medium">Sign in</Link>
         </p>
       </div>
     </Layout>

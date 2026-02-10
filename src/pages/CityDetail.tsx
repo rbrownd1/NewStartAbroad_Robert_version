@@ -23,7 +23,6 @@ const CityDetail = () => {
       </section>
 
       <div className="container mx-auto px-4 py-12 max-w-5xl">
-        {/* Summary */}
         <div className="grid sm:grid-cols-3 gap-4 mb-12">
           <div className="p-6 rounded-2xl bg-card border border-border text-center">
             <p className="text-sm text-muted-foreground mb-1">Cost of Living</p>
@@ -41,15 +40,14 @@ const CityDetail = () => {
           </div>
         </div>
 
-        {/* Sections */}
         <h2 className="text-2xl font-heading font-bold mb-6">City-specific guides</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
           {[
-            { icon: Building2, title: 'Housing', desc: `Popular areas: ${city.neighborhoods.join(', ')}. Mix of student halls and private rentals available.`, href: '/housing' },
-            { icon: Landmark, title: 'Banking', desc: 'All major digital and traditional banks operate here. Find branches near your area.', href: '/banking' },
-            { icon: Smartphone, title: 'SIM Cards', desc: 'Buy a SIM at the airport or any high-street carrier store on arrival.', href: '/sim' },
-            { icon: ShoppingCart, title: 'Groceries', desc: 'Major supermarkets and Indian stores available in most neighbourhoods.', href: '/groceries' },
-            { icon: Heart, title: 'Health', desc: 'Register with a local GP as soon as possible after arriving.', href: '/health' },
+            { icon: Building2, title: 'Housing', desc: `Popular areas: ${city.neighborhoods.join(', ')}. Mix of student halls and private rentals available.`, href: '/uk/housing' },
+            { icon: Landmark, title: 'Banking', desc: 'All major digital and traditional banks operate here. Find branches near your area.', href: '/uk/banking' },
+            { icon: Smartphone, title: 'SIM Cards', desc: 'Buy a SIM at the airport or any high-street carrier store on arrival.', href: '/uk/sim' },
+            { icon: ShoppingCart, title: 'Groceries', desc: 'Major supermarkets and Indian stores available in most neighbourhoods.', href: '/uk/groceries' },
+            { icon: Heart, title: 'Health', desc: 'Register with a local GP as soon as possible after arriving.', href: '/uk/health' },
           ].map(s => (
             <Link key={s.title} to={s.href} className="group">
               <InfoCard icon={s.icon} title={s.title} description={s.desc} />
@@ -57,7 +55,6 @@ const CityDetail = () => {
           ))}
         </div>
 
-        {/* Neighbourhoods */}
         <h2 className="text-2xl font-heading font-bold mb-4">Popular neighbourhoods</h2>
         <div className="flex flex-wrap gap-3">
           {city.neighborhoods.map(n => (

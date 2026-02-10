@@ -1,22 +1,22 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, ClipboardList, Building2, Landmark, Menu, MoreHorizontal } from 'lucide-react';
+import { Home, ClipboardList, Building2, Landmark, Menu, MoreHorizontal, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'How it Works', href: '/#how-it-works' },
-  { label: 'Features', href: '/#features' },
-  { label: 'Resources', href: '/resources/apps' },
+  { label: 'Home', href: '/uk' },
+  { label: 'How it Works', href: '/uk#how-it-works' },
+  { label: 'Features', href: '/uk#features' },
+  { label: 'Resources', href: '/uk/resources/apps' },
 ];
 
 const bottomNavItems = [
-  { label: 'Home', href: '/', icon: Home },
-  { label: 'Plan', href: '/plan', icon: ClipboardList },
-  { label: 'Housing', href: '/housing', icon: Building2 },
-  { label: 'Banking', href: '/banking', icon: Landmark },
-  { label: 'More', href: '/resources/apps', icon: MoreHorizontal },
+  { label: 'Home', href: '/uk', icon: Home },
+  { label: 'Plan', href: '/uk/plan', icon: ClipboardList },
+  { label: 'Housing', href: '/uk/housing', icon: Building2 },
+  { label: 'Banking', href: '/uk/banking', icon: Landmark },
+  { label: 'More', href: '/uk/resources/apps', icon: MoreHorizontal },
 ];
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -27,16 +27,22 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     <div className="min-h-screen flex flex-col bg-background">
       <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
         <div className="container mx-auto px-4 flex items-center justify-between h-16">
-          <Link to="/" className="text-xl font-heading font-bold text-primary tracking-tight">
-            NewStart<span className="text-coral">Abroad</span>
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors" title="All countries">
+              <ArrowLeft className="h-4 w-4" />
+            </Link>
+            <Link to="/uk" className="text-xl font-heading font-bold text-primary tracking-tight">
+              NewStart<span className="text-coral">Abroad</span>
+              <span className="ml-2 text-xs font-mono text-muted-foreground uppercase tracking-wider">🇬🇧 UK</span>
+            </Link>
+          </div>
           <nav className="hidden md:flex items-center gap-6">
             {navLinks.map(link => (
               <Link key={link.href} to={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 {link.label}
               </Link>
             ))}
-            <Link to="/onboarding/persona">
+            <Link to="/uk/onboarding/persona">
               <Button variant="coral" size="sm">Get Started</Button>
             </Link>
           </nav>
@@ -46,12 +52,15 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
               <nav className="flex flex-col gap-4 mt-8">
+                <Link to="/" onClick={() => setOpen(false)} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
+                  <ArrowLeft className="h-4 w-4" /> All countries
+                </Link>
                 {navLinks.map(link => (
                   <Link key={link.href} to={link.href} onClick={() => setOpen(false)} className="text-lg text-foreground hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 ))}
-                <Link to="/onboarding/persona" onClick={() => setOpen(false)}>
+                <Link to="/uk/onboarding/persona" onClick={() => setOpen(false)}>
                   <Button variant="coral" className="w-full mt-4">Get Started</Button>
                 </Link>
               </nav>
