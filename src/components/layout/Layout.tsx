@@ -37,7 +37,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               </Link>
             ))}
             <Link to="/onboarding/persona">
-              <Button size="sm">Get Started</Button>
+              <Button variant="coral" size="sm">Get Started</Button>
             </Link>
           </nav>
           <Sheet open={open} onOpenChange={setOpen}>
@@ -52,7 +52,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                   </Link>
                 ))}
                 <Link to="/onboarding/persona" onClick={() => setOpen(false)}>
-                  <Button className="w-full mt-4">Get Started</Button>
+                  <Button variant="coral" className="w-full mt-4">Get Started</Button>
                 </Link>
               </nav>
             </SheetContent>
