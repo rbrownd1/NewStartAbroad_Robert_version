@@ -26,7 +26,7 @@ const PersonaSelection = () => {
         </div>
         {state.persona && (
           <div className="text-center animate-fade-in">
-            <Button variant="coral" size="lg" onClick={() => navigate('/onboarding/intake')} className="gap-2">
+            <Button variant="coral" size="lg" onClick={() => navigate('/uk/onboarding/intake')} className="gap-2">
               Continue <ArrowRight className="h-4 w-4" />
             </Button>
           </div>

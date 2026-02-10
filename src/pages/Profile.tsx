@@ -67,7 +67,7 @@ const Profile = () => {
           </div>
         </div>
 
-        <Link to="/onboarding/intake">
+        <Link to="/uk/onboarding/intake">
           <Button variant="outline" className="w-full">Edit my UK plan</Button>
         </Link>
       </div>

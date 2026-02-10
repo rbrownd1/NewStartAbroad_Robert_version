@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
@@ -17,7 +16,7 @@ const IntakeForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({ title: '🎉 Your UK plan is ready!', description: 'We\'ve generated a personalised checklist for your first 90 days.' });
-    navigate('/plan');
+    navigate('/uk/plan');
   };
 
   const update = (partial: Partial<typeof state>) => setState(prev => ({ ...prev, ...partial }));

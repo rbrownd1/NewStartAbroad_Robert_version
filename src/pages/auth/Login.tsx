@@ -17,7 +17,6 @@ const Login = () => {
       return;
     }
     setError('');
-    // Mock – no real auth
   };
 
   return (
@@ -43,7 +42,7 @@ const Login = () => {
           </div>
         </form>
         <p className="text-center text-sm text-muted-foreground mt-6">
-          Don't have an account? <Link to="/auth/signup" className="text-primary hover:underline font-medium">Sign up</Link>
+          Don't have an account? <Link to="/uk/auth/signup" className="text-primary hover:underline font-medium">Sign up</Link>
         </p>
       </div>
     </Layout>

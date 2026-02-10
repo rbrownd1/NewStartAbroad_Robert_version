@@ -6,11 +6,11 @@ import heroImage from '@/assets/hero-london.jpg';
 import { ScrollReveal } from '@/hooks/use-scroll-animation';
 
 const features = [
-  { icon: Building2, title: 'Housing', description: 'Find the right accommodation from student halls to shared flats.', href: '/housing' },
-  { icon: Heart, title: 'Health & NHS', description: 'Navigate the NHS, register with a GP, and stay healthy.', href: '/health' },
-  { icon: Landmark, title: 'Banking', description: 'Open a UK bank account even without credit history.', href: '/banking' },
-  { icon: Smartphone, title: 'SIM Cards', description: 'Stay connected with the right mobile plan from day one.', href: '/sim' },
-  { icon: ShoppingCart, title: 'Groceries', description: 'Find supermarkets, Indian stores, and delivery apps.', href: '/groceries' },
+  { icon: Building2, title: 'Housing', description: 'Find the right accommodation from student halls to shared flats.', href: '/uk/housing' },
+  { icon: Heart, title: 'Health & NHS', description: 'Navigate the NHS, register with a GP, and stay healthy.', href: '/uk/health' },
+  { icon: Landmark, title: 'Banking', description: 'Open a UK bank account even without credit history.', href: '/uk/banking' },
+  { icon: Smartphone, title: 'SIM Cards', description: 'Stay connected with the right mobile plan from day one.', href: '/uk/sim' },
+  { icon: ShoppingCart, title: 'Groceries', description: 'Find supermarkets, Indian stores, and delivery apps.', href: '/uk/groceries' },
 ];
 
 const steps = [
@@ -34,7 +34,7 @@ const Index = () => {
                 NewStartAbroad guides Indian students and professionals through housing, health, banking, SIM, and groceries from day one.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/onboarding/persona">
+                <Link to="/uk/onboarding/persona">
                   <Button variant="coral" size="lg" className="gap-2 w-full sm:w-auto">
                     Start your New Start <ArrowRight className="h-4 w-4" />
                   </Button>
@@ -160,7 +160,7 @@ const Index = () => {
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Ready to start your journey?</h2>
             <p className="text-muted-foreground mb-8 max-w-lg mx-auto">Join thousands of Indians who made their UK move stress-free.</p>
-            <Link to="/onboarding/persona">
+            <Link to="/uk/onboarding/persona">
               <Button variant="coral" size="lg" className="gap-2">
                 Start your New Start <ArrowRight className="h-4 w-4" />
               </Button>
