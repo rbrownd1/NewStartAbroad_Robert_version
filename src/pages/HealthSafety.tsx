@@ -1,7 +1,7 @@
 import { Layout } from '@/components/layout/Layout';
 import { HubHero } from '@/components/HubHero';
 import { InfoCard } from '@/components/InfoCard';
-import { Heart, Stethoscope, Phone, AlertTriangle, GraduationCap, Briefcase } from 'lucide-react';
+import { Heart, Stethoscope, Phone, AlertTriangle, GraduationCap, Briefcase, Shield } from 'lucide-react';
 
 const basics = [
   { icon: Stethoscope, title: 'NHS vs Private', description: 'The NHS provides free healthcare at the point of use. Private healthcare offers faster access but costs extra. Most newcomers rely on the NHS.' },
@@ -19,24 +19,25 @@ const professionalHealth = [
   { emoji: '📍', title: 'GP Near Home or Office', description: 'Choose a GP that\'s convenient for your daily routine. Some offer evening and weekend appointments.' },
 ];
 
-const Health = () => {
+const HealthSafety = () => {
   return (
     <Layout>
-      <HubHero icon={Heart} title="Understand the NHS and stay healthy" subtitle="Everything you need to know about healthcare in the UK." />
+      <HubHero icon={Heart} title="Health & safety" subtitle="Understand the NHS, register with a doctor, and know your emergency options." />
 
       <div className="container mx-auto px-4 py-12 max-w-5xl">
-        <h2 className="text-2xl font-heading font-bold mb-6">Healthcare basics</h2>
+        <h2 className="text-2xl font-heading font-bold mb-6">Health system basics</h2>
         <div className="grid sm:grid-cols-3 gap-4 mb-12">
           {basics.map(b => (
             <InfoCard key={b.title} icon={b.icon} title={b.title} description={b.description} />
           ))}
         </div>
 
+        <h2 className="text-2xl font-heading font-bold mb-6">Register with a doctor</h2>
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <GraduationCap className="h-5 w-5 text-primary" />
-              <h2 className="text-xl font-heading font-bold">For Students</h2>
+              <h3 className="text-xl font-heading font-bold">For Students</h3>
             </div>
             <div className="space-y-4">
               {studentHealth.map(s => (
@@ -47,7 +48,7 @@ const Health = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Briefcase className="h-5 w-5 text-primary" />
-              <h2 className="text-xl font-heading font-bold">For Professionals</h2>
+              <h3 className="text-xl font-heading font-bold">For Professionals</h3>
             </div>
             <div className="space-y-4">
               {professionalHealth.map(p => (
@@ -57,10 +58,11 @@ const Health = () => {
           </div>
         </div>
 
-        <div className="p-6 rounded-2xl bg-secondary/50 border border-border">
+        <h2 className="text-2xl font-heading font-bold mb-6">Emergency numbers & services</h2>
+        <div className="p-6 rounded-2xl bg-secondary/50 border border-border mb-12">
           <div className="flex items-center gap-3 mb-3">
             <Phone className="h-5 w-5 text-primary" />
-            <h3 className="font-heading font-semibold text-lg">Emergency numbers</h3>
+            <h3 className="font-heading font-semibold text-lg">Key numbers</h3>
           </div>
           <div className="grid sm:grid-cols-3 gap-4 text-sm">
             <div><span className="font-semibold text-foreground">999</span> <span className="text-muted-foreground">– Life-threatening emergency</span></div>
@@ -68,9 +70,17 @@ const Health = () => {
             <div><span className="font-semibold text-foreground">112</span> <span className="text-muted-foreground">– European emergency number</span></div>
           </div>
         </div>
+
+        <div className="p-6 rounded-2xl bg-muted/50 border border-border">
+          <div className="flex items-center gap-3 mb-2">
+            <Shield className="h-5 w-5 text-muted-foreground" />
+            <h3 className="font-heading font-semibold text-lg">Insurance overview</h3>
+          </div>
+          <p className="text-muted-foreground text-sm">Detailed insurance comparison and guides – <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-muted text-xs font-medium">Coming soon</span></p>
+        </div>
       </div>
     </Layout>
   );
 };
 
-export default Health;
+export default HealthSafety;

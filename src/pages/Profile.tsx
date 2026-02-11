@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Layout } from '@/components/layout/Layout';
+import { GlobalLayout } from '@/components/layout/GlobalLayout';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
@@ -10,7 +10,7 @@ const Profile = () => {
   const { state } = useAppState();
 
   return (
-    <Layout>
+    <GlobalLayout>
       <div className="container mx-auto px-4 py-12 max-w-2xl">
         <div className="flex items-center gap-4 mb-8">
           <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
@@ -71,7 +71,7 @@ const Profile = () => {
           <Button variant="outline" className="w-full">Edit my UK plan</Button>
         </Link>
       </div>
-    </Layout>
+    </GlobalLayout>
   );
 };
 

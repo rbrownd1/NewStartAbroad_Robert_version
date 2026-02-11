@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Layout } from '@/components/layout/Layout';
+import { GlobalLayout } from '@/components/layout/GlobalLayout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -20,7 +20,7 @@ const Login = () => {
   };
 
   return (
-    <Layout>
+    <GlobalLayout>
       <div className="container mx-auto px-4 py-16 max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-heading font-bold mb-2">Welcome back</h1>
@@ -42,10 +42,10 @@ const Login = () => {
           </div>
         </form>
         <p className="text-center text-sm text-muted-foreground mt-6">
-          Don't have an account? <Link to="/uk/auth/signup" className="text-primary hover:underline font-medium">Sign up</Link>
+          Don't have an account? <Link to="/auth/signup" className="text-primary hover:underline font-medium">Sign up</Link>
         </p>
       </div>
-    </Layout>
+    </GlobalLayout>
   );
 };
 
