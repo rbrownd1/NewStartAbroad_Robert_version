@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { GlobalLayout } from '@/components/layout/GlobalLayout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,7 +8,8 @@ import { toast } from '@/hooks/use-toast';
 import { useState } from 'react';
 
 const ComingSoon = () => {
-  const { countryCode } = useParams();
+  const location = useLocation();
+  const countryCode = location.pathname.split('/')[1];
   const country = countries.find(c => c.code === countryCode);
   const [email, setEmail] = useState('');
 

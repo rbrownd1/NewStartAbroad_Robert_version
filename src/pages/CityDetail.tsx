@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { InfoCard } from '@/components/InfoCard';
 import { cities } from '@/data/mockData';
-import { MapPin, Train, Building2, Landmark, Smartphone, ShoppingCart, Heart } from 'lucide-react';
+import { MapPin, Train, Building2, Landmark, Smartphone, ShoppingCart, Heart, Users, Clock } from 'lucide-react';
 
 const CityDetail = () => {
   const { slug } = useParams();
@@ -16,7 +16,7 @@ const CityDetail = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <MapPin className="h-6 w-6 text-primary" />
-            <h1 className="text-3xl md:text-4xl font-heading font-bold">Your first 90 days in {city.name}</h1>
+            <h1 className="text-3xl md:text-4xl font-heading font-bold">{city.name} – your first 90 days</h1>
           </div>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{city.description}</p>
         </div>
@@ -40,14 +40,14 @@ const CityDetail = () => {
           </div>
         </div>
 
-        <h2 className="text-2xl font-heading font-bold mb-6">City-specific guides</h2>
+        <h2 className="text-2xl font-heading font-bold mb-6">Living essentials in this city</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
           {[
-            { icon: Building2, title: 'Housing', desc: `Popular areas: ${city.neighborhoods.join(', ')}. Mix of student halls and private rentals available.`, href: '/uk/housing' },
-            { icon: Landmark, title: 'Banking', desc: 'All major digital and traditional banks operate here. Find branches near your area.', href: '/uk/banking' },
-            { icon: Smartphone, title: 'SIM Cards', desc: 'Buy a SIM at the airport or any high-street carrier store on arrival.', href: '/uk/sim' },
-            { icon: ShoppingCart, title: 'Groceries', desc: 'Major supermarkets and Indian stores available in most neighbourhoods.', href: '/uk/groceries' },
-            { icon: Heart, title: 'Health', desc: 'Register with a local GP as soon as possible after arriving.', href: '/uk/health' },
+            { icon: Building2, title: 'Housing', desc: `Popular areas: ${city.neighborhoods.join(', ')}. Mix of student halls and private rentals available.`, href: '/uk/living-essentials/housing' },
+            { icon: Landmark, title: 'Banking', desc: 'All major digital and traditional banks operate here. Find branches near your area.', href: '/uk/living-essentials/banking' },
+            { icon: Smartphone, title: 'SIM & mobile', desc: 'Buy a SIM at the airport or any high-street carrier store on arrival.', href: '/uk/living-essentials/sim-mobile' },
+            { icon: ShoppingCart, title: 'Groceries', desc: 'Major supermarkets and Indian stores available in most neighbourhoods.', href: '/uk/living-essentials/groceries' },
+            { icon: Heart, title: 'Health & safety', desc: 'Register with a local GP as soon as possible after arriving.', href: '/uk/health-safety' },
           ].map(s => (
             <Link key={s.title} to={s.href} className="group">
               <InfoCard icon={s.icon} title={s.title} description={s.desc} />
@@ -55,11 +55,19 @@ const CityDetail = () => {
           ))}
         </div>
 
-        <h2 className="text-2xl font-heading font-bold mb-4">Popular neighbourhoods</h2>
-        <div className="flex flex-wrap gap-3">
+        <h2 className="text-2xl font-heading font-bold mb-4">Neighbourhoods overview</h2>
+        <div className="flex flex-wrap gap-3 mb-12">
           {city.neighborhoods.map(n => (
             <span key={n} className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium">{n}</span>
           ))}
+        </div>
+
+        <div className="p-6 rounded-2xl bg-muted/50 border border-border">
+          <div className="flex items-center gap-3 mb-2">
+            <Users className="h-5 w-5 text-muted-foreground" />
+            <h3 className="font-heading font-semibold text-lg">Community & lifestyle in this city</h3>
+          </div>
+          <p className="text-muted-foreground text-sm">City-specific community groups, events, and lifestyle guides – <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-muted text-xs font-medium"><Clock className="h-2.5 w-2.5 mr-0.5" />Coming soon</span></p>
         </div>
       </div>
     </Layout>

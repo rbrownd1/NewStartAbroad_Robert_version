@@ -9,11 +9,15 @@ import Index from "./pages/Index";
 import PersonaSelection from "./pages/onboarding/PersonaSelection";
 import IntakeForm from "./pages/onboarding/IntakeForm";
 import Plan from "./pages/Plan";
+import LivingEssentials from "./pages/LivingEssentials";
 import Housing from "./pages/Housing";
 import Banking from "./pages/Banking";
 import Sim from "./pages/Sim";
 import Groceries from "./pages/Groceries";
-import Health from "./pages/Health";
+import HealthSafety from "./pages/HealthSafety";
+import WorkStudyFamily from "./pages/WorkStudyFamily";
+import MobilityLogistics from "./pages/MobilityLogistics";
+import CommunityLifestyle from "./pages/CommunityLifestyle";
 import CityDetail from "./pages/CityDetail";
 import ResourcesApps from "./pages/ResourcesApps";
 import Login from "./pages/auth/Login";
@@ -40,16 +44,22 @@ const App = () => (
             <Route path="/uk/onboarding/persona" element={<PersonaSelection />} />
             <Route path="/uk/onboarding/intake" element={<IntakeForm />} />
             <Route path="/uk/plan" element={<Plan />} />
-            <Route path="/uk/housing" element={<Housing />} />
-            <Route path="/uk/banking" element={<Banking />} />
-            <Route path="/uk/sim" element={<Sim />} />
-            <Route path="/uk/groceries" element={<Groceries />} />
-            <Route path="/uk/health" element={<Health />} />
+            <Route path="/uk/living-essentials" element={<LivingEssentials />} />
+            <Route path="/uk/living-essentials/housing" element={<Housing />} />
+            <Route path="/uk/living-essentials/banking" element={<Banking />} />
+            <Route path="/uk/living-essentials/sim-mobile" element={<Sim />} />
+            <Route path="/uk/living-essentials/groceries" element={<Groceries />} />
+            <Route path="/uk/health-safety" element={<HealthSafety />} />
+            <Route path="/uk/work-study-family" element={<WorkStudyFamily />} />
+            <Route path="/uk/mobility-logistics" element={<MobilityLogistics />} />
+            <Route path="/uk/community-lifestyle" element={<CommunityLifestyle />} />
             <Route path="/uk/city/:slug" element={<CityDetail />} />
             <Route path="/uk/resources/apps" element={<ResourcesApps />} />
-            <Route path="/uk/auth/login" element={<Login />} />
-            <Route path="/uk/auth/signup" element={<Signup />} />
-            <Route path="/uk/profile" element={<Profile />} />
+
+            {/* Global auth & profile */}
+            <Route path="/auth/login" element={<Login />} />
+            <Route path="/auth/signup" element={<Signup />} />
+            <Route path="/profile" element={<Profile />} />
 
             {/* Coming soon country microsites */}
             <Route path="/ca" element={<ComingSoon />} />
