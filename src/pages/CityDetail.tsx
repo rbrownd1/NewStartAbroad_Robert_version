@@ -1,8 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { InfoCard } from '@/components/InfoCard';
+import { Badge } from '@/components/ui/badge';
 import { cities } from '@/data/mockData';
-import { MapPin, Train, Building2, Landmark, Smartphone, ShoppingCart, Heart, Users, Clock } from 'lucide-react';
+import { MapPin, Train, Building2, Landmark, Smartphone, ShoppingCart, Heart, Users, Clock, GraduationCap, Briefcase, PoundSterling } from 'lucide-react';
 
 const CityDetail = () => {
   const { slug } = useParams();
@@ -23,6 +24,7 @@ const CityDetail = () => {
       </section>
 
       <div className="container mx-auto px-4 py-12 max-w-5xl">
+        {/* ── Key Stats ─────────────────────────────────────── */}
         <div className="grid sm:grid-cols-3 gap-4 mb-12">
           <div className="p-6 rounded-2xl bg-card border border-border text-center">
             <p className="text-sm text-muted-foreground mb-1">Cost of Living</p>
@@ -40,6 +42,51 @@ const CityDetail = () => {
           </div>
         </div>
 
+        {/* ── Rent Ranges & Transport Cost ────────────────────── */}
+        <h2 className="text-2xl font-heading font-bold mb-6 flex items-center gap-2">
+          <PoundSterling className="h-6 w-6 text-primary" />
+          Cost breakdown
+        </h2>
+        <div className="grid sm:grid-cols-3 gap-4 mb-12">
+          <div className="p-6 rounded-2xl bg-card border border-border">
+            <div className="flex items-center gap-2 mb-3">
+              <GraduationCap className="h-5 w-5 text-primary" />
+              <h3 className="font-heading font-semibold">Student rent</h3>
+            </div>
+            <p className="text-2xl font-heading font-bold text-foreground">{city.avgRentStudent}</p>
+            <p className="text-xs text-muted-foreground mt-1">Halls or shared house</p>
+          </div>
+          <div className="p-6 rounded-2xl bg-card border border-border">
+            <div className="flex items-center gap-2 mb-3">
+              <Briefcase className="h-5 w-5 text-primary" />
+              <h3 className="font-heading font-semibold">Professional rent</h3>
+            </div>
+            <p className="text-2xl font-heading font-bold text-foreground">{city.avgRentProfessional}</p>
+            <p className="text-xs text-muted-foreground mt-1">Studio or 1-bed flat</p>
+          </div>
+          <div className="p-6 rounded-2xl bg-card border border-border">
+            <div className="flex items-center gap-2 mb-3">
+              <Train className="h-5 w-5 text-primary" />
+              <h3 className="font-heading font-semibold">Monthly transport</h3>
+            </div>
+            <p className="text-2xl font-heading font-bold text-foreground">{city.transportMonthlyCost}</p>
+            <p className="text-xs text-muted-foreground mt-1">Bus/tram/metro pass</p>
+          </div>
+        </div>
+
+        {/* ── Indian Community Areas ──────────────────────────── */}
+        <h2 className="text-2xl font-heading font-bold mb-2 flex items-center gap-2">
+          <Users className="h-6 w-6 text-primary" />
+          Indian community areas
+        </h2>
+        <p className="text-muted-foreground mb-4">Areas in {city.name} with Indian grocery stores, restaurants, temples, and community centres.</p>
+        <div className="flex flex-wrap gap-3 mb-12">
+          {city.indianCommunityAreas.map(area => (
+            <Badge key={area} variant="secondary" className="px-4 py-2 text-sm font-medium">{area}</Badge>
+          ))}
+        </div>
+
+        {/* ── Living Essentials Links ─────────────────────────── */}
         <h2 className="text-2xl font-heading font-bold mb-6">Living essentials in this city</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
           {[
@@ -55,6 +102,7 @@ const CityDetail = () => {
           ))}
         </div>
 
+        {/* ── Neighbourhoods Overview ─────────────────────────── */}
         <h2 className="text-2xl font-heading font-bold mb-4">Neighbourhoods overview</h2>
         <div className="flex flex-wrap gap-3 mb-12">
           {city.neighborhoods.map(n => (
@@ -62,6 +110,7 @@ const CityDetail = () => {
           ))}
         </div>
 
+        {/* ── Community & Lifestyle (Coming Soon) ─────────────── */}
         <div className="p-6 rounded-2xl bg-muted/50 border border-border">
           <div className="flex items-center gap-3 mb-2">
             <Users className="h-5 w-5 text-muted-foreground" />

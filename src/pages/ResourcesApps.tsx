@@ -4,7 +4,7 @@ import { apps } from '@/data/mockData';
 import { Smartphone } from 'lucide-react';
 import { HubHero } from '@/components/HubHero';
 
-const categories = ['Transport', 'Banking', 'Food', 'Groceries', 'Housing', 'Health', 'Communication'];
+const categories = ['Transport', 'Banking', 'Food', 'Groceries', 'Housing', 'Health', 'Safety', 'Communication', 'Work', 'Community', 'Entertainment', 'Travel'];
 
 const ResourcesApps = () => {
   return (
@@ -26,6 +26,8 @@ const ResourcesApps = () => {
             </div>
           );
         })}
+
+        <p className="text-center text-xs text-muted-foreground mt-8">Last updated: February 2026</p>
       </div>
     </Layout>
   );

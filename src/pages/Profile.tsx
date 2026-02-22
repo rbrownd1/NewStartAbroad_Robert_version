@@ -3,11 +3,17 @@ import { GlobalLayout } from '@/components/layout/GlobalLayout';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
+import { Progress } from '@/components/ui/progress';
 import { useAppState } from '@/context/AppContext';
-import { User, MapPin, Calendar, ClipboardList, Settings } from 'lucide-react';
+import { tasks } from '@/data/mockData';
+import { User, MapPin, Calendar, ClipboardList, Settings, TrendingUp } from 'lucide-react';
 
 const Profile = () => {
   const { state } = useAppState();
+  const persona = state.persona || 'student';
+  const relevantTasks = tasks.filter(t => t.persona === 'both' || t.persona === persona);
+  const completedCount = state.completedTasks.filter(id => relevantTasks.some(t => t.id === id)).length;
+  const progress = relevantTasks.length > 0 ? (completedCount / relevantTasks.length) * 100 : 0;
 
   return (
     <GlobalLayout>
@@ -52,6 +58,22 @@ const Profile = () => {
             </div>
           </div>
         </div>
+
+        <Link to="/uk/plan" className="block">
+          <div className="p-6 rounded-2xl bg-primary text-primary-foreground mb-8">
+            <div className="flex items-center gap-3 mb-3">
+              <TrendingUp className="h-5 w-5" />
+              <h2 className="font-heading font-semibold text-lg">Your 90-Day Plan</h2>
+            </div>
+            <div className="flex items-center gap-4 mb-2">
+              <Progress value={progress} className="flex-1 h-3 bg-primary-foreground/20 [&>div]:bg-coral" />
+              <span className="text-lg font-heading font-bold">{Math.round(progress)}%</span>
+            </div>
+            <p className="text-sm text-primary-foreground/70">
+              {completedCount} of {relevantTasks.length} tasks completed
+            </p>
+          </div>
+        </Link>
 
         <div className="p-6 rounded-2xl bg-card border border-border mb-8">
           <h2 className="font-heading font-semibold text-lg mb-4">Notifications</h2>

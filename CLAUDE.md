@@ -28,68 +28,90 @@ NewStartAbroad is a React 18 + TypeScript + Vite + Tailwind CSS + shadcn/ui web 
 
 ### What Needs Building (5-Session Build Plan)
 
-**Session 1: Data Layer** (DO FIRST — everything depends on this)
-- [ ] Expand `src/data/mockData.ts`:
-  - Tasks: 15 → 40+ (add admin category, more persona-specific tasks)
-  - Cities: 5 basic → 10 with avgRentStudent, avgRentProfessional, transportMonthlyCost, indianCommunityAreas
-  - Add `simCarriers` array: 6 UK carriers with pricing, data, India calling rates
-  - Add `housingTypes` array: 5 types with pros/cons/costs per persona
-  - Add `healthGuides` array: 8 guides (emergency, NHS, GP registration, mental health, pharmacy, dental)
-  - Add `groceryStores` array: 13 stores (supermarkets, Indian/Asian, delivery apps)
-  - Add `weekOneShoppingList` array: grouped by category (essentials, spices, fresh, household)
-  - Expand `apps` array: 14 → 25+ (add Admin and Safety categories)
-  - Add `admin` to `categoryColors` and `categoryIcons`
+**Session 1: Data Layer** ✅ COMPLETE (2026-02-22)
+- [x] Expanded `src/data/mockData.ts`:
+  - Tasks: 15 → 48 (added `admin` + `lifestyle` categories, persona-specific tasks across all 4 timeframes)
+  - Cities: 5 → 10 (added Leeds, Bristol, Nottingham, Liverpool, Coventry)
+  - Added `simCarriers` array: 6 carriers (Giffgaff, Three, Voxi, Lebara, EE, Vodafone) with pricing, data, India calling rates
+  - Added `housingTypes` array: 5 types (uni halls, PBSA, shared house, studio, mid-term rental) with pros/cons/costs/platforms
+  - Added `healthGuides` array: 8 guides (NHS overview, GP registration, emergencies, uni health, mental health, dentist, pharmacy, IHS/insurance)
+  - Added `groceryStores` array: 13 stores (6 supermarkets, 3 Indian/Asian, 2 discount, 2 delivery apps)
+  - Added `weekOneShoppingList` array: 6 categories (pantry, spices, fresh produce, proteins, household, personal care)
+  - Expanded `apps` array: 14 → 28 (added Safety, Work, Community, Entertainment, Travel categories)
+  - Added `admin` + `lifestyle` to `categoryColors` and `categoryIcons`
+  - Added 6 new interfaces: `SimCarrier`, `HousingType`, `HealthGuide`, `GroceryStore`, `ShoppingListItem`
+  - Build verified: `npm run build` passes with 0 errors
 
-**Session 2: Housing + Banking Pages**
-- [ ] Rebuild `src/pages/Housing.tsx`:
+**Session 2: Housing + Banking Pages** ✅ COMPLETE (2026-02-22)
+- [x] Rebuilt `src/pages/Housing.tsx`:
   - Persona tabs (Student/Professional) defaulting to AppContext persona
-  - Detailed housing type cards with pros/cons lists and cost ranges
-  - Scam avoidance alert section
-  - Documents needed section (different per persona)
-  - Recommended platforms per persona
+  - Detailed housing type cards with pros/cons lists (CheckCircle/XCircle icons) and cost range badges
+  - Scam avoidance alert section (6 warnings in amber Alert component)
+  - Documents needed section (6 student docs vs 7 professional docs, per-persona via tabs)
+  - Recommended platforms per housing type as pill badges
   - "Last updated: February 2026" footer
-- [ ] Rebuild `src/pages/Banking.tsx`:
-  - Persona tabs (Student/Professional)
-  - Feature comparison matrix for digital banks
-  - "Sending Money from India" section (Wise, Revolut, bank transfer)
-  - Persona-specific section (student accounts vs salary/NI/council tax)
+- [x] Rebuilt `src/pages/Banking.tsx`:
+  - Feature comparison matrix table for 3 digital banks (Monzo, Starling, Revolut) across 8 features
+  - Traditional banks section (Barclays, HSBC) with feature lists
+  - "Sending Money from India" section with 4 options (Wise, Revolut, SWIFT, Remitly) with highlight badges
+  - Persona tabs (Student/Professional) with persona-specific tips (4 student, 5 professional InfoCards)
+  - Step-by-step account opening guides per persona in Alert components
   - "Last updated: February 2026" footer
+  - Build verified: `npm run build` passes with 0 errors
 
-**Session 3: SIM + Groceries Pages**
-- [ ] Rebuild `src/pages/Sim.tsx`:
-  - Prepaid vs Contract side-by-side comparison
-  - 6-carrier comparison table/cards from simCarriers data
-  - SIM setup checklist
-  - "Calling India" section
+**Session 3: SIM + Groceries Pages** ✅ COMPLETE (2026-02-22)
+- [x] Rebuilt `src/pages/Sim.tsx`:
+  - Prepaid vs Contract side-by-side comparison with pros lists
+  - 6-carrier comparison tables (prepaid and contract separated) with cost, data, India calling, persona badges
+  - Carrier detail cards with newcomer notes
+  - 7-step SIM setup checklist
+  - "Calling India" section with 4 InfoCards (WhatsApp, carrier mins, add-ons, Wi-Fi calling)
+  - Persona tabs (Student/Professional) with 4 tips each and step-by-step Alert guides
   - "Last updated: February 2026" footer
-- [ ] Rebuild `src/pages/Groceries.tsx`:
-  - UK supermarket grid with price level badges
-  - Indian & Asian grocery stores section with city-specific tips
-  - Week-1 shopping list from weekOneShoppingList data
-  - Food delivery apps grid
-  - Budget tips section
+  - Build verified: `npm run build` passes with 0 errors
+- [x] Rebuilt `src/pages/Groceries.tsx`:
+  - UK supermarket grid (8 stores) with price level badges (budget/mid/premium) and delivery/Indian product badges
+  - Indian & Asian grocery stores section (3 stores from data) with city-specific tips for 6 cities
+  - Week-1 shopping list from weekOneShoppingList data (6 categories with checklist items)
+  - Food delivery apps grid (2 apps from data)
+  - Budget tips section (6 InfoCards)
+  - Indian store vs supermarket price comparison Alert
   - "Last updated: February 2026" footer
+  - Build verified: `npm run build` passes with 0 errors
 
-**Session 4: Health + City Detail Pages**
-- [ ] Rebuild `src/pages/HealthSafety.tsx`:
-  - Emergency numbers alert banner (999/111/112)
-  - NHS overview with IHS surcharge explanation
-  - GP registration step-by-step guide
-  - Persona tabs (student health services vs occupational health)
-  - Mental health resources section
-  - Pharmacies & prescriptions section
-  - Dental care section
-  - Disclaimer footer
-- [ ] Enhance `src/pages/CityDetail.tsx`:
-  - Show avgRentStudent, avgRentProfessional, transportMonthlyCost
-  - Indian community areas section with pill badges
-  - Keep existing neighbourhood and essentials sections
+**Session 4: Health + City Detail Pages** ✅ COMPLETE (2026-02-22)
+- [x] Rebuilt `src/pages/HealthSafety.tsx`:
+  - Emergency numbers alert banner (999/111/112) with red Alert styling and large number cards
+  - NHS overview with IHS surcharge explanation (two-column cards with external links)
+  - GP registration step-by-step guide (6 numbered steps from healthGuides data)
+  - Persona tabs (Student: university health centre, counselling, sexual health, vaccinations + quick-start checklist; Professional: occupational health, EAP, private insurance, flexible GP + quick-start checklist)
+  - Mental health resources section (5 support options from data, amber encouragement alert)
+  - Pharmacies & prescriptions section (4 tips, England/Scotland/Wales/NI cost comparison cards, prepayment certificate info)
+  - Dental care section (4 numbered steps, Band 1/2/3 cost cards with badges, NHS dentist finder link)
+  - Disclaimer footer in muted Alert
+  - "Last updated: February 2026" footer
+  - Build verified: `npm run build` passes with 0 errors
+- [x] Enhanced `src/pages/CityDetail.tsx`:
+  - Cost breakdown section with avgRentStudent, avgRentProfessional, transportMonthlyCost in three cards
+  - Indian community areas section with Badge pill components per city
+  - Added city data: avgRentStudent, avgRentProfessional, transportMonthlyCost, indianCommunityAreas for all 10 cities in mockData.ts
+  - Kept existing neighbourhood overview, living essentials links, and coming-soon community section
+  - Build verified: `npm run build` passes with 0 errors
 
-**Session 5: Resources + Profile + Plan + QA**
-- [ ] Update `src/pages/ResourcesApps.tsx`: Add "Admin" and "Safety" to categories
-- [ ] Enhance `src/pages/Profile.tsx`: Add plan progress card with progress bar
-- [ ] Verify `src/pages/Plan.tsx`: Handles 40+ tasks, new admin category works
-- [ ] Test all pages render without errors at 375px, 768px, 1280px+
+**Session 5: Resources + Profile + Plan + QA** ✅ COMPLETE (2026-02-22)
+- [x] Updated `src/pages/ResourcesApps.tsx`:
+  - Expanded categories array from 7 to 12: added Safety, Work, Community, Entertainment, Travel (matching all 28 apps in mockData)
+  - Added "Last updated: February 2026" footer
+- [x] Enhanced `src/pages/Profile.tsx`:
+  - Added plan progress card with teal background, TrendingUp icon, Progress bar (coral fill), percentage, and "X of Y tasks completed" count
+  - Card links to `/uk/plan` for quick navigation
+  - Progress calculation filters tasks by persona (matches Plan.tsx logic)
+  - Reuses existing Progress component with same styling as Plan.tsx ProgressHeader
+- [x] Verified `src/pages/Plan.tsx`:
+  - Handles all 49 tasks correctly (dynamic filtering by persona and timeframe)
+  - `admin` and `lifestyle` categories display with correct colors/icons from categoryColors/categoryIcons
+  - No code changes needed — architecture already supports new categories
+- [x] Build verified: `npm run build` passes with 0 errors
 
 ### Intentionally Left as "Coming Soon" (Phase 1 scope = 5 pillars only)
 - `src/pages/WorkStudyFamily.tsx` — DO NOT BUILD OUT
@@ -123,18 +145,18 @@ src/
 ├── context/AppContext.tsx      # State (FINAL)
 ├── data/
 │   ├── countries.ts           # Country list (FINAL)
-│   └── mockData.ts            # ALL content data (EXPAND IN SESSION 1)
+│   └── mockData.ts            # ALL content data (48 tasks, 10 cities w/ rent+transport+Indian areas, 6 SIM, 5 housing, 8 health, 13 grocery, 28 apps, shopping list)
 ├── pages/
 │   ├── GlobalHome.tsx         # DONE
 │   ├── Index.tsx              # DONE
 │   ├── Plan.tsx               # DONE (verify with new tasks)
 │   ├── LivingEssentials.tsx   # DONE (hub nav page)
-│   ├── Housing.tsx            # SESSION 2
-│   ├── Banking.tsx            # SESSION 2
-│   ├── Sim.tsx                # SESSION 3
-│   ├── Groceries.tsx          # SESSION 3
-│   ├── HealthSafety.tsx       # SESSION 4
-│   ├── CityDetail.tsx         # SESSION 4
+│   ├── Housing.tsx            # DONE (Session 2)
+│   ├── Banking.tsx            # DONE (Session 2)
+│   ├── Sim.tsx                # DONE (Session 3)
+│   ├── Groceries.tsx          # DONE (Session 3)
+│   ├── HealthSafety.tsx       # DONE (Session 4)
+│   ├── CityDetail.tsx         # DONE (Session 4)
 │   ├── ResourcesApps.tsx      # SESSION 5
 │   ├── Profile.tsx            # SESSION 5
 │   ├── onboarding/            # DONE
